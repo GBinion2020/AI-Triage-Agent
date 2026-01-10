@@ -71,20 +71,11 @@ class AlertContext:
     # ---------------- PowerShell ----------------
 
     def _powershell(self) -> Dict[str, Any]:
-        ps_file = self.source.get("powershell", {}).get("file", {})
-        ps_script = self.source.get("powershell", {}).get("script", {})
-        
-        # Try different locations for text
-        script_text = (
-            ps_file.get("script_block_text") or 
-            ps_script.get("text") or 
-            self.source.get("powershell.file.script_block_text") or
-            self.source.get("powershell.script.text")
-        )
-
+        ps = self.source.get("powershell", {}).get("file", {})
         return {
-            "script_block_id": ps_file.get("script_block_id") or ps_script.get("id"),
-            "script_block_text": script_text,
+            "script_block_id": ps.get("script_block_id"),
+            "script_block_hash": ps.get("script_block_hash"),
+            "script_block_text": ps.get("script_block_text"),
         }
 
     # ---------------- Event ----------------

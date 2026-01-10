@@ -6,7 +6,7 @@ class AlertFetcher:
         self.client = ElasticClient()
         self.alert_index = ".alerts-security.alerts-*"
 
-    def fetch_recent_alerts(self, minutes=1440, size=1): ##This fetches alerts in the last 10 minutes size set to 1 for test, in an actual environment you'll want to expand this. 
+    def fetch_recent_alerts(self, minutes=30, size=1): ##This fetches alerts in the last 10 minutes size set to 1 for test, in an actual environment you'll want to expand this. 
         query = {
             "size": size,
             "sort": [
