@@ -1,5 +1,5 @@
 TRIAGE_SCHEMA = {
-    "classification": {"benign", "suspicious", "malicious"},
+    "classification": {"not malicious", "suspicious", "malicious", "undecided"},
     "recommended_action": {"ignore", "investigate", "contain", "escalate"}
 }
 
